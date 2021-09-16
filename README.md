@@ -1,8 +1,5 @@
 # Bill for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/helmab/bill.svg?style=flat-square)](https://packagist.org/packages/asorasoft/bill)
-[![Total Downloads](https://img.shields.io/packagist/dt/helmab/bill.svg?style=flat-square)](https://packagist.org/packages/asorasoft/bill)
-
 The subscription plan billing for Laravel
 
 ## Installation
@@ -18,17 +15,10 @@ Register `BillServiceProvider` class in `config/app.php`
 ```php
 <?php
 
-    ...
+'providers' => [
     
-    'providers' => [
-    
-        ...
-        
-        /*
-         * Package Service Providers...
-         */
-        Asorasoft\Bill\BillServiceProvider::class
-    ]
+    Asorasoft\Bill\BillServiceProvider::class
+]
 ```
 
 You need to publish the configuration file, it will create `bill.php` file
