@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/helmab/bill.svg?style=flat-square)](https://packagist.org/packages/asorasoft/bill)
 [![Total Downloads](https://img.shields.io/packagist/dt/helmab/bill.svg?style=flat-square)](https://packagist.org/packages/asorasoft/bill)
-![GitHub Actions](https://github.com/helmab/bill/actions/workflows/main.yml/badge.svg)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
