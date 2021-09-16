@@ -17,13 +17,17 @@ Register `BillServiceProvider` class in `config/app.php`
 
 ```php
 <?php
+
     ...
+    
     'providers' => [
+    
         ...
+        
         /*
          * Package Service Providers...
          */
-        Asorasoft\Bill\BillServiceProvider:class
+        Asorasoft\Bill\BillServiceProvider::class
     ]
 ```
 
@@ -43,7 +47,7 @@ BILL_VERIFY_SSL=
 
 ## Usage
 
-### Update or create customer
+### Create or update customer
 
 ```php
 public function createOrUpdateCustomer()
