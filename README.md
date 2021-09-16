@@ -119,7 +119,6 @@ public function renewalPlanRequest()
         'document' => 'required',
     ]);
     
-    # renewal plan request
     $response = RenewalPlanRequest::create([
         ['name' => 'customer_id', 'contents' => $customer_id],
         ['name' => 'duration', 'contents' => $request->duration],

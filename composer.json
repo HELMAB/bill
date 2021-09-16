@@ -1,9 +1,10 @@
 {
     "name": "asorasoft/bill",
-    "description": "The subscription plan billing",
+    "description": "The subscription plan billing for Laravel",
     "keywords": [
         "asorasoft",
-        "bill"
+        "billing",
+        "subscription"
     ],
     "homepage": "https://github.com/helmab/bill",
     "license": "MIT",
