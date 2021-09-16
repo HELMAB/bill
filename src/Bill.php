@@ -4,5 +4,13 @@ namespace Asorasoft\Bill;
 
 class Bill
 {
-    // Build your next great package.
+    public $secretKey;
+
+    public $apiUrl;
+
+    public function __construct($apiUrl, $secretKey)
+    {
+        $this->apiUrl = $apiUrl;
+        $this->secretKey = $secretKey;
+    }
 }
