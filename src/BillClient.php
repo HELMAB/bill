@@ -18,7 +18,7 @@ class BillClient
         $this->bill = new Bill(config('bill.api_url'), config('bill.secret_key'));
 
         $this->client = new Client([
-            'verify' => false,
+            'verify' => config('bill.verify_ssl'),
             'headers' => [
                 'Authentication' => "Basic " . $this->bill->secretKey,
                 'Accept' => 'application/json'
