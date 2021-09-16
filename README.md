@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/helmab/bill.svg?style=flat-square)](https://packagist.org/packages/asorasoft/bill)
 [![Total Downloads](https://img.shields.io/packagist/dt/helmab/bill.svg?style=flat-square)](https://packagist.org/packages/asorasoft/bill)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+The subscription plan billing for Laravel
 
 ## Installation
 
@@ -13,9 +13,38 @@ You can install the package via composer:
 composer require asorasoft/bill
 ```
 
+Register `BillServiceProvider` class in `config/app.php`
+
+```php
+<?php
+    ...
+    'providers' => [
+        ...
+        /*
+         * Package Service Providers...
+         */
+        Asorasoft\Bill\BillServiceProvider:class
+    ]
+```
+
+You need to publish the configuration file, it will create `bill.php` file
+
+```bash
+php artisan vendor:publish --provider="Asorasoft\Bill\BillServiceProvider"
+```
+
+Copy bill key configuration to `.env` file
+
+```dotenv
+BILL_SECRET_KEY=
+BILL_API_URL=
+BILL_VERIFY_SSL=
+```
+
 ## Usage
 
 ### Update or create customer
+
 ```php
 public function createOrUpdateCustomer()
 {
@@ -29,6 +58,7 @@ public function createOrUpdateCustomer()
 ```
 
 ### Get customer and plans
+
 ```php
 public function getCustomerAndPlans() 
 {
@@ -39,6 +69,7 @@ public function getCustomerAndPlans()
 ```
 
 ### Subscribe a plan
+
 ```php
 public function subscribe()
 {
@@ -47,6 +78,7 @@ public function subscribe()
 ```
 
 ### Change plan request
+
 ```php
 public function changePlanRequest()
 {
@@ -77,6 +109,7 @@ public function changePlanRequest()
 ```
 
 ### Renewal Plan Request
+
 ```php
 public function renewalPlanRequest()
 {
@@ -104,6 +137,7 @@ public function renewalPlanRequest()
 ```
 
 ### Get invoices list
+
 ```php
 public function invoices()
 {
@@ -114,6 +148,7 @@ public function invoices()
 ```
 
 ### Downloading an invoice
+
 ```php
 public function download()
 {
