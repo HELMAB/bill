@@ -20,9 +20,7 @@ class Subscription
     {
         $billClient = new BillClient();
 
-        $response = $billClient->postWithFile('/api/bill/v1/subscription/subscribe', $data);
-
-        return json_decode($response->getBody());
+        return $billClient->postWithFile('/api/bill/v1/subscription/first-subscribe', $data);
     }
 
     public static function getCustomerAndPlans($customer_id)
