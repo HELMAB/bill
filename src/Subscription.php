@@ -16,6 +16,15 @@ class Subscription
         return json_decode($response->getBody());
     }
 
+    public static function firstSubscribe($data)
+    {
+        $billClient = new BillClient();
+
+        $response = $billClient->post('/api/bill/v1/subscription/subscribe', $data);
+
+        return json_decode($response->getBody());
+    }
+
     public static function getCustomerAndPlans($customer_id)
     {
         $billClient = new BillClient();
