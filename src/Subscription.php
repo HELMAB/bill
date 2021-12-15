@@ -20,7 +20,7 @@ class Subscription
     {
         $billClient = new BillClient();
 
-        $response = $billClient->post('/api/bill/v1/subscription/subscribe', $data);
+        $response = $billClient->postWithFile('/api/bill/v1/subscription/subscribe', $data);
 
         return json_decode($response->getBody());
     }
