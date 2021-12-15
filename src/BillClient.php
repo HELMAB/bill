@@ -2,10 +2,8 @@
 
 namespace Asorasoft\Bill;
 
-use ApiConnectionException;
 use Exception;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class BillClient
 {
@@ -21,15 +19,12 @@ class BillClient
             'verify' => config('bill.verify_ssl'),
             'headers' => [
                 'Authentication' => "Basic " . $this->bill->secretKey,
-                'Accept' => 'application/json'
+                'Accept' => 'application/json',
+                'Content-Type' => 'multipart/form-data'
             ]
         ]);
     }
 
-    /**
-     * @throws GuzzleException
-     * @throws ApiConnectionException
-     */
     public function post($url, $params = [])
     {
         $uri = $this->bill->apiUrl . $url;
@@ -38,14 +33,10 @@ class BillClient
                 'form_params' => $params
             ]);
         } catch (Exception $exception) {
-            throw new ApiConnectionException($exception->getMessage());
+            throw new Exception($exception->getMessage());
         }
     }
 
-    /**
-     * @throws GuzzleException
-     * @throws ApiConnectionException
-     */
     public function postWithFile($url, $params = [])
     {
         $uri = $this->bill->apiUrl . $url;
@@ -54,21 +45,17 @@ class BillClient
                 'multipart' => $params
             ]);
         } catch (Exception $exception) {
-            throw new ApiConnectionException($exception->getMessage());
+            throw new Exception($exception->getMessage());
         }
     }
 
-    /**
-     * @throws GuzzleException
-     * @throws ApiConnectionException
-     */
     public function get($url)
     {
         $uri = $this->bill->apiUrl . $url;
         try {
             return $this->client->request('GET', $uri);
         } catch (Exception $exception) {
-            throw new ApiConnectionException($exception->getMessage());
+            throw new Exception($exception->getMessage());
         }
     }
 }
